@@ -67,6 +67,24 @@ public class UtilisateurController {
         }
     }
     
-  
+    @PostMapping("/resultat")
+    public ResponseEntity<String> createResultat(@RequestBody Resultat resultat ) {
+        try {
+            boolean saved = utilisateurService.addResultat(resultat);
+            utilisateurService.addResultat(resultat);
+            if (saved) {
+                return new ResponseEntity<>("Resultat created successfully", HttpStatus.CREATED);
+            } else {
+                return new ResponseEntity<>("Failed to create resultat", HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @RequestMapping("/personality/{userId}/{testId}")
+    public String getPersonality(@PathVariable("userId") Long userId, @PathVariable("testId") Long testId) {
+		return  utilisateurService.calculatePersonality(userId, testId);
+    }
 
 }
