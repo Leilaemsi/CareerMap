@@ -1,4 +1,4 @@
-package com.example.fitfolio.config;
+package com.example.careermap
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

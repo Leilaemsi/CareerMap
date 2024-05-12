@@ -1,34 +1,40 @@
 package com.example.careermap.controller;
 
 import java.util.List;
-
-import javax.annotation.security.PermitAll;
-
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.example.careermap.dto.AuthentificationDTO;
+import com.example.careermap.dto.PersonalityJobDTO;
 import com.example.careermap.dto.QuestionDTO;
+import com.example.careermap.dto.ResultatDTO;
 import com.example.careermap.dto.TestDTO;
 import com.example.careermap.dto.UtilisateurDTO;
 import com.example.careermap.payload.AuthentificationMessage;
+import com.example.careermap.repository.JobsRepo;
 import com.example.careermap.service.UtilisateurService;
 import com.example.careermap.entity.Reponse;
+import com.example.careermap.entity.Jobs;
 import com.example.careermap.entity.Resultat;
+import com.example.careermap.entity.Test;
+import com.example.careermap.entity.Utilisateur;
 
 
 @RestController
 @CrossOrigin
 @RequestMapping("api/v1/utilisateur")
 public class UtilisateurController {
+	
+	@Autowired
+	private JobsRepo jobsRepo;
+
 
     @Autowired
     private UtilisateurService utilisateurService;
@@ -68,10 +74,10 @@ public class UtilisateurController {
     }
     
     @PostMapping("/resultat")
-    public ResponseEntity<String> createResultat(@RequestBody Resultat resultat ) {
+    public ResponseEntity<String> createResultat(@RequestBody ResultatDTO resultatDTO) {
         try {
+            Resultat resultat = convertToEntity(resultatDTO);
             boolean saved = utilisateurService.addResultat(resultat);
-            utilisateurService.addResultat(resultat);
             if (saved) {
                 return new ResponseEntity<>("Resultat created successfully", HttpStatus.CREATED);
             } else {
@@ -82,9 +88,36 @@ public class UtilisateurController {
         }
     }
 
+ 
+
+
+
     @RequestMapping("/personality/{userId}/{testId}")
-    public String getPersonality(@PathVariable("userId") Long userId, @PathVariable("testId") Long testId) {
-		return  utilisateurService.calculatePersonality(userId, testId);
+    public PersonalityJobDTO getPersonality(@PathVariable("userId") Long userId, @PathVariable("testId") Long testId) {
+        Map<String, Object> perso = utilisateurService.calculatePersonality(userId, testId);
+        String personality = (String) perso.get("personality");
+        Jobs job = jobsRepo.findByPersonnalite(personality);
+        
+        System.out.println(job.getNomjob());
+        
+        PersonalityJobDTO result = new PersonalityJobDTO();
+        result.setPersonnalite(personality);
+        result.setJobs(job.getNomjob());
+        result.setIntroversionPercentage((int) perso.get("introversionPercentage"));
+        result.setExtraversionPercentage((int) perso.get("extraversionPercentage"));
+        result.setSensingPercentage((int) perso.get("sensingPercentage"));
+        result.setIntuitionPercentage((int) perso.get("intuitionPercentage"));
+        result.setThinkingPercentage((int) perso.get("thinkingPercentage"));
+        result.setFeelingPercentage((int) perso.get("feelingPercentage"));
+        result.setJudgingPercentage((int) perso.get("judgingPercentage"));
+        result.setPerceivingPercentage((int) perso.get("perceivingPercentage"));
+        
+        return result;
     }
+    
+    
+   
+
+    
 
 }
