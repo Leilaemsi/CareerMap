@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package com.example.careermap
+=======
+package com.example.fitfolio.config;
+>>>>>>> f962d6087840983d5858ed32adca6fff306f4c0f
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

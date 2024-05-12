@@ -1,10 +1,14 @@
 package com.example.careermap.service.impl;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+=======
+import java.util.List;
+>>>>>>> f962d6087840983d5858ed32adca6fff306f4c0f
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.springframework.beans.BeanUtils;
@@ -31,9 +35,12 @@ public class UtilisateurImpl implements UtilisateurService {
     @Autowired
     UtilisateurRepo utilisateurRepository;
 
+<<<<<<< HEAD
    
     
     
+=======
+>>>>>>> f962d6087840983d5858ed32adca6fff306f4c0f
     
     @PersistenceContext
     private EntityManager entityManager;
@@ -74,7 +81,10 @@ public class UtilisateurImpl implements UtilisateurService {
         for (Question question : questions) {
             QuestionDTO questionDTO = new QuestionDTO();
             questionDTO.setQuestionFrancais(question.getQuestionFrancais());
+<<<<<<< HEAD
             questionDTO.setIdQuestion(question.getIdQuestion());
+=======
+>>>>>>> f962d6087840983d5858ed32adca6fff306f4c0f
             questionDTOs.add(questionDTO);
         }
         return questionDTOs;
@@ -94,6 +104,7 @@ public class UtilisateurImpl implements UtilisateurService {
         }
     }
 
+<<<<<<< HEAD
     public Map<String, Object> calculatePersonality(Long userId, Long testId) {
         Map<String, Object> result = new HashMap<>();
         List<String> responses = reponseRepository.findByMatriculeAndIdTest(userId, testId);
@@ -205,5 +216,92 @@ public class UtilisateurImpl implements UtilisateurService {
 	
 	
    
+=======
+	
+   
+	@Override
+	public String calculatePersonality(Long userId, Long testId) {
+		        List<String> responses = reponseRepository.findByMatriculeAndIdTest(userId, testId);
+		        int introversionSum = 0, sensingSum = 0, thinkingSum = 0, judgingSum = 0;
+
+		        for (int i = 0; i < responses.size(); i++) {
+		            int percent = Integer.parseInt(responses.get(i).trim());
+
+		            switch (i % 4) {
+		                case 0:
+		                case 4:
+		                case 8:
+		                case 12:
+		                case 16:
+		                case 20:
+		                case 24:
+		                    introversionSum += percent;
+		                    break;
+		                case 1:
+		                case 5:
+		                case 9:
+		                case 13:
+		                case 17:
+		                case 21:
+		                case 25:
+		                    sensingSum += percent;
+		                    break;
+		                case 2:
+		                case 6:
+		                case 10:
+		                case 14:
+		                case 18:
+		                case 22:
+		                case 26:
+		                    thinkingSum += percent;
+		                    break;
+		                case 3:
+		                case 7:
+		                case 11:
+		                case 15:
+		                case 19:
+		                case 23:
+		                case 27:
+		                    judgingSum += percent;
+		                    break;
+		            }
+		        }
+
+		        int totalResponses = responses.size() / 4;
+		        int introversionPercentage = introversionSum / totalResponses;
+		        int sensingPercentage = sensingSum / totalResponses;
+		        int thinkingPercentage = thinkingSum / totalResponses;
+		        int judgingPercentage = judgingSum / totalResponses;
+
+		        String personality = "";
+		        if (introversionPercentage > 50) {
+		            personality += "I";
+		        } else {
+		            personality += "E";
+		        }
+
+		        if (sensingPercentage > 50) {
+		            personality += "S";
+		        } else {
+		            personality += "N";
+		        }
+
+		        if (thinkingPercentage > 50) {
+		            personality += "T";
+		        } else {
+		            personality += "F";
+		        }
+
+		        if (judgingPercentage > 50) {
+		            personality += "J";
+		        } else {
+		            personality += "P";
+		        }
+
+		      
+		        return personality;
+		    
+	}
+>>>>>>> f962d6087840983d5858ed32adca6fff306f4c0f
  
 }
