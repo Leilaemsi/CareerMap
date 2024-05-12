@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Resultat {
@@ -28,19 +29,44 @@ public class Resultat {
     @ManyToOne
     @JoinColumn(name = "id_test")
     private Test fk_test;
+    
+    @OneToOne
+    @JoinColumn(name = "id")
+    private Jobs id;
 
     public Resultat() {
-        // no-argument constructor
+       
     }
 
-	public Resultat(Long id_resultat, String date, String personnalite, Utilisateur utilisateur, Test test) {
-		super();
+	
+
+
+	public Resultat(Long id_resultat, String date, String personnalite, Utilisateur fk_utilisateur, Test fk_test,
+			Jobs id) {
+
 		this.id_resultat = id_resultat;
 		this.date = date;
 		this.personnalite = personnalite;
-		this.fk_utilisateur = utilisateur;
-		this.fk_test = test;
+		this.fk_utilisateur = fk_utilisateur;
+		this.fk_test = fk_test;
+		this.id = id;
 	}
+
+
+
+
+	public Jobs getId() {
+		return id;
+	}
+
+
+
+
+	public void setId(Jobs id) {
+		this.id = id;
+	}
+
+
 
 
 	public Long getId_resultat() {
