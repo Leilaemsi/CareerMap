@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-package com.example.careermap
-=======
-package com.example.fitfolio.config;
->>>>>>> f962d6087840983d5858ed32adca6fff306f4c0f
+package com.example.careermap.config;
+
+
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -18,11 +16,12 @@ public class SecuriteConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeRequests(authorize -> authorize
-                        
-                        .antMatchers("/api/v1/utilisateur/save").permitAll()
+                		.antMatchers("/api/v1/utilisateur/save").permitAll()
+                        .antMatchers("/api/v1/utilisateur/login").permitAll()
                         .antMatchers("/api/v1/utilisateur/fetchQuestions").permitAll()
                         .antMatchers("/api/v1/utilisateur/reponses").permitAll()
                         .antMatchers("/api/v1/utilisateur/personality/{userId}/{testId}").permitAll()
                         .anyRequest().authenticated());           
     }
 }
+
