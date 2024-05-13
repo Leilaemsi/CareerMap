@@ -1,10 +1,7 @@
 package com.example.careermap.service;
 
 import java.util.List;
-<<<<<<< HEAD
 import java.util.Map;
-=======
->>>>>>> f962d6087840983d5858ed32adca6fff306f4c0f
 
 import com.example.careermap.dto.AuthentificationDTO;
 import com.example.careermap.dto.QuestionDTO;
@@ -12,9 +9,10 @@ import com.example.careermap.dto.UtilisateurDTO;
 import com.example.careermap.payload.AuthentificationMessage;
 import com.example.careermap.entity.Reponse;
 import com.example.careermap.entity.Resultat;
+import com.example.careermap.entity.Utilisateur;
 
 public interface UtilisateurService {
-    String addUtilisateur(UtilisateurDTO utilisateurDTO);
+    Utilisateur addUtilisateur(UtilisateurDTO utilisateurDTO);
 
     AuthentificationMessage authentificationUtilisateur(AuthentificationDTO authentificationDTO);
    
@@ -22,15 +20,9 @@ public interface UtilisateurService {
 
     boolean addReponse(Reponse reponse);
     boolean addResultat(Resultat resultat);
-    
-<<<<<<< HEAD
     Map<String,Object> calculatePersonality(Long userId, Long testId);
 
-	
-    
-  
-=======
-    String calculatePersonality(Long userId, Long testId);
+	Map<String, Object> mylogin(AuthentificationDTO authentificationDTO);
 
->>>>>>> f962d6087840983d5858ed32adca6fff306f4c0f
 }
+
