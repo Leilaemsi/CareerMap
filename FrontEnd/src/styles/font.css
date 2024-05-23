@@ -1,0 +1,49 @@
+@font-face {
+  font-display: swap;
+  font-style: normal;
+  src: url("/public/fonts/RubikRomanMedium.ttf");
+  font-family: "Rubik";
+  font-weight: 500;
+}
+@font-face {
+  font-display: swap;
+  font-style: normal;
+  src: url("/public/fonts/RubikRomanRegular.ttf");
+  font-family: "Rubik";
+  font-weight: 400;
+}
+@font-face {
+  font-display: swap;
+  font-style: normal;
+  src: url("/public/fonts/RubikRomanExtraBold.ttf");
+  font-family: "Rubik";
+  font-weight: 800;
+}
+@font-face {
+  font-display: swap;
+  font-style: normal;
+  src: url("/public/fonts/RubikRomanSemiBold.ttf");
+  font-family: "Rubik";
+  font-weight: 600;
+}
+@font-face {
+  font-display: swap;
+  font-style: normal;
+  src: url("/public/fonts/RubikMedium.ttf");
+  font-family: "Rubik";
+  font-weight: 500;
+}
+@font-face {
+  font-display: swap;
+  font-style: normal;
+  src: url("/public/fonts/RubikRomanBold.ttf");
+  font-family: "Rubik";
+  font-weight: 700;
+}
+@font-face {
+  font-display: swap;
+  font-style: normal;
+  src: url("/public/fonts/AnekGurmukhiRegular.ttf");
+  font-family: "Anek Gurmukhi";
+  font-weight: 400;
+}
