@@ -5,7 +5,10 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+<<<<<<< HEAD
 import org.springframework.http.converter.HttpMessageNotReadableException;
+=======
+>>>>>>> 9785a961f8e6220c58c302887b28543c134cc1be
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -162,12 +165,22 @@ public class UtilisateurController {
     }
 
     private Resultat convertToEntity(ResultatDTO resultatDTO) {
+<<<<<<< HEAD
     	 Map<String, Object> perso = utilisateurService.calculatePersonality(resultatDTO.getFkUtilisateurId(),resultatDTO.getFkTestId());
          String personality = (String) perso.get("personality");
          Jobs job = jobsRepo.findByPersonnalite(personality);
         Resultat resultat = new Resultat();
         resultat.setId_resultat(resultatDTO.getIdResultat());
         resultat.setDate(resultatDTO.getDate());
+=======
+    	System.out.println("Leilaaa2");
+        Resultat resultat = new Resultat();
+        resultat.setId_resultat(resultatDTO.getIdResultat());
+        resultat.setDate(resultatDTO.getDate());
+        Map<String, Object> perso = utilisateurService.calculatePersonality(resultatDTO.getFkUtilisateurId(),resultatDTO.getFkTestId());
+        String personality = (String) perso.get("personality");
+        System.out.println("Leilaaa2");
+>>>>>>> 9785a961f8e6220c58c302887b28543c134cc1be
         resultat.setPersonnalite(personality);
         Utilisateur utilisateur = new Utilisateur();
         utilisateur.setMatricule(resultatDTO.getFkUtilisateurId());   
@@ -175,6 +188,7 @@ public class UtilisateurController {
         Test test = new Test();
         test.setId_test(resultatDTO.getFkTestId());   
         resultat.setFk_test(test);
+<<<<<<< HEAD
         resultat.setId(job);
         resultat.setIntroversionPercentage((int) perso.get("introversionPercentage"));
         resultat.setExtraversionPercentage((int) perso.get("extraversionPercentage"));
@@ -184,6 +198,8 @@ public class UtilisateurController {
         resultat.setFeelingPercentage((int) perso.get("feelingPercentage"));
         resultat.setJudgingPercentage((int) perso.get("judgingPercentage"));
         resultat.setPerceivingPercentage((int) perso.get("perceivingPercentage"));
+=======
+>>>>>>> 9785a961f8e6220c58c302887b28543c134cc1be
 
         return resultat;
     }

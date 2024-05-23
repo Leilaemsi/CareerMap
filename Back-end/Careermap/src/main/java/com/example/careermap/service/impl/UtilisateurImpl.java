@@ -36,8 +36,12 @@ public class UtilisateurImpl implements UtilisateurService {
 
     @Autowired
     UtilisateurRepo utilisateurRepository;
+<<<<<<< HEAD
 	@Autowired
 	private JobsRepo jobsRepo;
+=======
+
+>>>>>>> 9785a961f8e6220c58c302887b28543c134cc1be
    
     
     

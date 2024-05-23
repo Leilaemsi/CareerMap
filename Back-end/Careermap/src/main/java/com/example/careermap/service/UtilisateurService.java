@@ -24,8 +24,11 @@ public interface UtilisateurService {
     Map<String,Object> calculatePersonality(Long userId, Long testId);
 
 	Map<String, Object> mylogin(AuthentificationDTO authentificationDTO);
+<<<<<<< HEAD
 
 	List<ResultatDTO> fetchAllUtilisateurTest(Long matricule);
+=======
+>>>>>>> 9785a961f8e6220c58c302887b28543c134cc1be
 
 }
 
