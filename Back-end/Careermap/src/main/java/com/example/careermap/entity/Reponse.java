@@ -25,6 +25,8 @@ public class Reponse {
     @ManyToOne
     @JoinColumn(name = "idQuestion")
     private Question fk_question;
+    
+    private Long iteration;
      
     
     public Reponse() {
@@ -32,13 +34,36 @@ public class Reponse {
     }
 
 
-	public Reponse(Long idReponse, String reponse, Utilisateur fk_utilisateur, Question fk_question) {
+	
+
+
+	public Reponse(Long idReponse, String reponse, Utilisateur fk_utilisateur, Question fk_question, Long iteration) {
 		super();
 		this.idReponse = idReponse;
 		this.reponse = reponse;
 		this.fk_utilisateur = fk_utilisateur;
 		this.fk_question = fk_question;
+		this.iteration = iteration;
 	}
+
+
+
+
+
+	public Long getIteration() {
+		return iteration;
+	}
+
+
+
+
+
+	public void setIteration(Long iteration) {
+		this.iteration = iteration;
+	}
+
+
+
 
 
 	public Long getIdReponse() {

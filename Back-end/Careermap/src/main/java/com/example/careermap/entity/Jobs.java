@@ -18,11 +18,18 @@ public class Jobs {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column( length = 50) 
+    @Column( length = 255) 
     private String nomjob;
     
     @Column( length = 50) 
     private String personnalite;
+    
+    @Column( length = 255) 
+    private String img;
+    
+    @Column( length = 255) 
+    private String description;
+    
     
     
     
@@ -31,12 +38,42 @@ public class Jobs {
 		
 	}
 
-	public Jobs(Long id, String nomjob, String personnalite) {
-	
+
+
+	public Jobs(Long id, String nomjob, String personnalite, String img, String description) {
+		super();
 		this.id = id;
 		this.nomjob = nomjob;
 		this.personnalite = personnalite;
+		this.img = img;
+		this.description = description;
 	}
+
+
+
+	public String getImg() {
+		return img;
+	}
+
+
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
+
+
+	public String getDescription() {
+		return description;
+	}
+
+
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+
 
 	public Long getId() {
 		return id;
