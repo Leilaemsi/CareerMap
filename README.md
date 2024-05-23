@@ -14,7 +14,6 @@ En utilisant la technologie pour personnaliser l'apprentissage et l'orientation,
 - [Frontend](#frontend)
 - [Backend](#backend)
 - [Pour Commencer](#pour-commencer)
-- [Dépendances](#dépendances)
 - [Démonstration vidéo](#démonstration-vidéo)
 - [Contribution](#contribution)
 
@@ -97,7 +96,7 @@ Le projet frontend en React est organisé autour de six composants principaux, c
 
 ### Dépendances
 
-Liste des principales dépendances pour le frontend avec leurs versions.
+Liste des principales dépendances pour le frontend avec leurs versions :
 
 ```json
 {
