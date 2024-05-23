@@ -1,0 +1,46 @@
+.custom-progress {
+  border-radius: 3px;
+}
+
+.custom-progress::-webkit-progress-value {
+  background-color: #74ABFF;
+  border-radius: 3px 0 0 3px;  
+}
+
+.custom-progress::-webkit-progress-bar {
+  background-color: #EEEEEE;
+  border-radius: 3px; /* Background color behind the progress bar */
+}
+
+.progress-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px; /* Adjust margin as needed */
+}
+
+.progress {
+  width: 90%;
+  height: 25px;
+}
+
+.label, .value-label {
+  position: absolute;
+  top: -20px; /* Adjust vertical position as needed */
+  font-size: smaller; /* Set smaller text size */
+}
+
+.label {
+  left: 15px; /* Adjust margin left for the label */
+}
+
+.value-label {
+  right: 25px; /* Adjust margin right for the value label */
+  cursor: pointer;
+}
+
+.best-fit {
+  margin-top: 20px;
+  font-size: larger;
+}
