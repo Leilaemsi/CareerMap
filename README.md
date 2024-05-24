@@ -270,7 +270,9 @@ Figure 5 : Page de resultat
 
 # Démonstration vidéo
 
-Cliquez sur le lien ci-dessous pour regarder une vidéo de démonstration :
+Cliquez sur la vidéo ci-dessous pour regarder la démonstration :
+
+https://github.com/Leilaemsi/CareerMap/assets/121642941/9fc55bbb-45c8-45be-8db3-a932cf48b9f0
 
 
 
